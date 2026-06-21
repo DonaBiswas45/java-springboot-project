@@ -12,8 +12,11 @@ ApiGateway (port 8080): Single entry point for all requests.
 - ✅ **API Gateway** — Centralized routing and cross-cutting concerns
 - ✅ **Rate Limiting** — IP-based request throttling (5 req/10s)
 - ✅ **Circuit Breaker** — Resilience4j with graceful fallbacks
-- ✅ **Event Driven** — Spring Application Events for decoupled communication
-- ✅ **Status Workflow** — SUBMITTED → APPROVED → PUBLISHED → CANCELLED
+- ✅ **Event Driven** — Apache Kafka (KRaft mode) replacing Spring Application Events for fully decoupled async communication
+- ✅ **Kafka Topics** —  user.registered · event.created · event.status.changed
+- ✅ **Kafka Producer** — AuthService publishes user registration events; EventService publishes event lifecycle events
+- ✅ **Kafka Consumer** —  EventService consumes user events from AuthService with JSON deserialization
+- ✅ **Status Workflow** — UBMITTED → APPROVED → PUBLISHED → CANCELLED
 - ✅ **Search & Filter** — Dynamic JPQL queries by name, category, location, price
 - ✅ **Unit Tests** — 5 tests covering creation, search, and workflow validation
 - ✅ **Frontend** — Responsive HTML/JS UI with search and filter
